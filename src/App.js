@@ -5,7 +5,7 @@ import Message from './Message';
 
 function App() {
   const [input, setInput] = useState('')
-  const [messages, setMessages] = useState([{username : 'hamma', text : 'holla'},{username : 'fuck you', text : 'asba'}])
+  const [messages, setMessages] = useState([{username : 'hamma', text : 'holla'},{username : 'haroun ', text : 'salem'}])
   const [username, setUsername] = useState('')
 
 
@@ -29,13 +29,14 @@ function App() {
           <InputLabel>
           <Input value={input} onChange={event=>setInput(event.target.value)}/></InputLabel>
           <hr/>
+          <hr/>
           <Button disabled={!input} varient='contained' color='primary' type='submit' onClick={sendMessage}>send message</Button>
         </FormControl>
       
       
       </form>
       {messages.map(message=>
-        <Message username={message.username} text={message.text}/>
+        <Message username={username} message={message}/>
         
         )}
       
