@@ -1,16 +1,16 @@
-import React from 'react'
+import React, {forwardRef} from 'react'
 import { Card, CardContent, Typography } from '@material-ui/core';
 import './Message.css';
 
 
-function Message({message,username}) {
+const  Message = forwardRef( ({message,username}, ref)=> {
   const isUser = username === message.username ;
   return (
-        <div className={`message ${isUser && 'message__user'}`}>
+        <div ref={ref} className={`message ${isUser && 'message__user'}`}>
       <Card className={isUser ? 'message__userCard' : 'message__guestCard'}>
         <CardContent>
           <Typography varient='h5' color='white' component='h2'>
-          {message.username} : {message.text}
+          {message.username} : {message.message}
           </Typography>
         
         </CardContent>
@@ -18,6 +18,6 @@ function Message({message,username}) {
     </Card>
     </div>       
     )
-}
+})
 
 export default Message
